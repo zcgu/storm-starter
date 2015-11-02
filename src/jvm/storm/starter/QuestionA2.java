@@ -20,14 +20,46 @@ package storm.starter;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
+import backtype.storm.topology.BasicOutputCollector;
+import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.TopologyBuilder;
+import backtype.storm.topology.base.BaseBasicBolt;
+import backtype.storm.tuple.Fields;
+import backtype.storm.tuple.Tuple;
+import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
-import storm.starter.bolt.PrinterBolt_Group16;
-import storm.starter.bolt.PrinterBolt_Group16_Q2;
-import storm.starter.spout.TwitterSampleSpout_Group16;
-import storm.starter.spout.TwitterSampleSpout_Group16_Q2;
+import storm.starter.bolt.Q2_ChangeBolt;
+import storm.starter.bolt.Q2_SelectBolt;
+import storm.starter.spout.Q2_HashtagSpout;
+import storm.starter.spout.Q2_NumbersSpout;
+import storm.starter.spout.Q2_TwitterSpout;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class QuestionA2 {
+    public static class WordCount extends BaseBasicBolt {
+        Map<String, Integer> counts = new HashMap<String, Integer>();
+
+        @Override
+        public void execute(Tuple tuple, BasicOutputCollector collector) {
+            String word = (String) tuple.getValueByField("tweet");
+            Integer count = counts.get(word);
+            if (count == null)
+                count = 0;
+            count++;
+            counts.put(word, count);
+            System.out.println(word+" "+count);
+            collector.emit(new Values(word, count));
+        }
+
+        @Override
+        public void declareOutputFields(OutputFieldsDeclarer declarer) {
+            declarer.declare(new Fields("word", "count"));
+        }
+    }
+
     public static void main(String[] args) {
        /* String consumerKey = args[0];
         String consumerSecret = args[1];
@@ -40,30 +72,40 @@ public class QuestionA2 {
         String consumerSecret = "9BXbYQbXSjCRgMzU6UhgopMZe3aBVw7bjTS16fSMyTWef3QPyK";
         String accessToken = "3435593417-8EQvMbiAVpEQeZFR6uvJDk1c5Ow05ZudGbZrIpa";
         String accessTokenSecret = "4v2pFJykOjDfA14aGLKPMCHRSbyx0zXGGP9mygPJDM3I9";
- //       String[] keyWords = {"fans","halloween","star","club","apple","express","google","a","an","the"};
+ //     String[] keyWords = {"fans","halloween","star","club","apple","express","google","a","an","the"};
         String[] keyWords = {"apple","google","Microsoft","facebook","iphone","app","tech","ipad","mobile","android","ios",
                                 "mac","imac","macbook","apps","music","itunes","games","AndroidGames","ipadgames","samsung",
                                 "network","yahoo","amazon","uber","tvos","cloud","icloud","bestbuy","ebay","computer","phone",
-                                "technology","ebook","java","chrome","whatsapp",
-                                "iphone7","ios10"};
+                                "technology","ebook","java","chrome","whatsapp", "iphone7","ios10",
+                                "WebSummit2015","AMAs","IllShowYou","URGENT","AMAs","BIGBANG","BTS","PushAwardsKathNiels","PSYBwelta","PENNYSTOCKS",
+                                "TEAMBILLIONAIRE","WebSummit2015","tech","News","HowTo"};
 
 
         TopologyBuilder builder = new TopologyBuilder();
         
-        builder.setSpout("twitter", new TwitterSampleSpout_Group16_Q2(consumerKey, consumerSecret,
-                                accessToken, accessTokenSecret, keyWords));
-        builder.setBolt("print", new PrinterBolt_Group16_Q2())
+        builder.setSpout("twitter", new Q2_TwitterSpout(consumerKey, consumerSecret,accessToken, accessTokenSecret, keyWords),8);
+        builder.setSpout("hashtags", new Q2_HashtagSpout());
+        builder.setSpout("number", new Q2_NumbersSpout());
+
+        builder.setBolt("change", new Q2_ChangeBolt())
+                .shuffleGrouping("hashtags")
+                .shuffleGrouping("number");
+
+        builder.setBolt("select", new Q2_SelectBolt())
+                .shuffleGrouping("change")
                 .shuffleGrouping("twitter");
-                
-                
+
+     //   builder.setBolt("count", new WordCount()).fieldsGrouping("select",new Fields("tweet"));
+
         Config conf = new Config();
         
         
         LocalCluster cluster = new LocalCluster();
-        
+        conf.setMaxTaskParallelism(3);
+
         cluster.submitTopology("test", conf, builder.createTopology());
         
-        Utils.sleep(30000);
+        Utils.sleep(300000);
         cluster.shutdown();
     }
 }

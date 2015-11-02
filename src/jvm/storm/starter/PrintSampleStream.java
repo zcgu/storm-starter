@@ -18,17 +18,13 @@
 
 package storm.starter;
 
-import java.util.Arrays;
-
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.utils.Utils;
 
-import storm.starter.bolt.PrinterBolt;
-import storm.starter.bolt.PrinterBolt_Group16;
-import storm.starter.spout.TwitterSampleSpout;
-import storm.starter.spout.TwitterSampleSpout_Group16;
+import storm.starter.bolt.Q1_PrinterBolt;
+import storm.starter.spout.Q1_TwitterSpout;
 
 public class PrintSampleStream {        
     public static void main(String[] args) {
@@ -47,9 +43,9 @@ public class PrintSampleStream {
 
         TopologyBuilder builder = new TopologyBuilder();
         
-        builder.setSpout("twitter", new TwitterSampleSpout_Group16(consumerKey, consumerSecret,
+        builder.setSpout("twitter", new Q1_TwitterSpout(consumerKey, consumerSecret,
                                 accessToken, accessTokenSecret, keyWords));
-        builder.setBolt("print", new PrinterBolt_Group16())
+        builder.setBolt("print", new Q1_PrinterBolt())
                 .shuffleGrouping("twitter");
                 
                 
