@@ -44,7 +44,7 @@ public class Q2_NumbersSpout extends BaseRichSpout {
   @Override
   public void nextTuple() {
 
-    int[] numbers = new int[]{125,250,500,1000,2000,4000,8000};
+    int[] numbers = new int[]{500,1000,2000,4000,8000};
     int number= numbers[_rand.nextInt(numbers.length)];
     _collector.emit(new Values(number));
       Utils.sleep(30000);

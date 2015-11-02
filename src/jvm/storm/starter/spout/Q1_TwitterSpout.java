@@ -68,7 +68,7 @@ public class Q1_TwitterSpout extends BaseRichSpout {
 
 			@Override
 			public void onStatus(Status status) {
-				if("en".equalsIgnoreCase(status.getLang()))
+//				if("en".equalsIgnoreCase(status.getLang()))
 					queue.offer(status);
 			}
 
@@ -112,7 +112,10 @@ public class Q1_TwitterSpout extends BaseRichSpout {
 
 		else {
 
-			FilterQuery query = new FilterQuery().track(keyWords);
+			FilterQuery query = new FilterQuery();
+			query.track(keyWords);
+
+			query.language(new String[]{"en"});
 			twitterStream.filter(query);
 		}
 
