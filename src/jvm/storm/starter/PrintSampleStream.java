@@ -39,7 +39,7 @@ public class PrintSampleStream {
         String consumerSecret = "VlcAxGCKJVOgPTs7OyVAaMeFAMezoOQ0JZTtPvsrWF1jbNp9db";
         String accessToken = "3435593417-DlXLbVSCwpUWQEKDbqT7dlHb7iNoO8clPxwnZHe";
         String accessTokenSecret = "bldWCCmhFF2idcZJKZuZVHJ5gpoeywVhu2WRs86A8UCx2";
-        String[] keyWords = {"beautiful"};
+        String[] keyWords = {"apple"};
 
         TopologyBuilder builder = new TopologyBuilder();
         

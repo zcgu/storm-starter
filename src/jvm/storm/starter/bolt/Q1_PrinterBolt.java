@@ -24,6 +24,7 @@ import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.IRichBolt;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.tuple.Tuple;
+import twitter4j.Status;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -51,15 +52,15 @@ public class Q1_PrinterBolt implements IRichBolt {
   @Override
   public void execute(Tuple tuple) {
     if(count<1000000){
-      String s=tuple.toString();
-      if("source: twitter:".equals(s.substring(0,16))) count++;
-      s = s.replaceAll("\r|\n", "");
-      System.out.println("Total number is: "+ count);
+      Status status=(Status) tuple.getValueByField("tweet");
+      String s= status.getText();
+      s = s.replaceAll("\r|\n", " ");
+      System.out.println("Total number is: "+ ++count);
       System.out.println(s);
 
       try {
-          if("source: twitter:".equals(s.substring(0,16))) out.newLine();
           out.write(s);
+          out.newLine();
           out.flush();
       } catch (IOException e) {
         e.printStackTrace();

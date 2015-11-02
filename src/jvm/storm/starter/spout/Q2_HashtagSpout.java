@@ -47,7 +47,7 @@ public class Q2_HashtagSpout extends BaseRichSpout {
     String[] hashtags = new String[]{"apple","google","Microsoft","facebook","iphone","app","tech","ipad","mobile","android","ios",
             "mac","imac","macbook","apps","music","itunes","games","AndroidGames","ipadgames","samsung",
             "network","yahoo","amazon","uber","tvos","cloud","icloud","bestbuy","ebay","computer","phone",
-            "technology","ebook","java","chrome","whatsapp", "iphone7","ios10","music","GameInsight","gameinsight","androidgames",
+            "technology","ebook","java","chrome", "iphone7","ios10","music","GameInsight","gameinsight","androidgames",
             "WebSummit2015","AMAs","IllShowYou","URGENT","AMAs","BIGBANG","BTS","PushAwardsKathNiels","PSYBwelta","PENNYSTOCKS",
             "TEAMBILLIONAIRE","WebSummit2015","tech","News","HowTo"};
 /*

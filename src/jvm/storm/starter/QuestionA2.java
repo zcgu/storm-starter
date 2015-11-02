@@ -78,7 +78,7 @@ public class QuestionA2 {
                                 "network","yahoo","amazon","uber","tvos","cloud","icloud","bestbuy","ebay","computer","phone",
                                 "technology","ebook","java","chrome","whatsapp", "iphone7","ios10",
                                 "WebSummit2015","AMAs","IllShowYou","URGENT","AMAs","BIGBANG","BTS","PushAwardsKathNiels","PSYBwelta","PENNYSTOCKS",
-                                "TEAMBILLIONAIRE","WebSummit2015","tech","News","HowTo"};
+                                "TEAMBILLIONAIRE","WebSummit2015","tech","News","Howto"};
 
 
         TopologyBuilder builder = new TopologyBuilder();

@@ -114,7 +114,6 @@ public class Q1_TwitterSpout extends BaseRichSpout {
 
 			FilterQuery query = new FilterQuery();
 			query.track(keyWords);
-
 			query.language(new String[]{"en"});
 			twitterStream.filter(query);
 		}
@@ -125,7 +124,7 @@ public class Q1_TwitterSpout extends BaseRichSpout {
 	public void nextTuple() {
 		Status ret = queue.poll();
 		if (ret == null) {
-			//Utils.sleep(50);
+			Utils.sleep(50);
 		} else {
 			_collector.emit(new Values(ret));
 
