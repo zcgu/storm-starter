@@ -37,7 +37,7 @@ public class Q1_PrinterBolt implements IRichBolt {
   int count=0;
   FileWriter fstream;
   BufferedWriter out;
-  String fname = "QuestionA1_data_6";
+  String fname = "QuestionA1_data_7";
 
   @Override
   public void declareOutputFields(OutputFieldsDeclarer ofd) {
