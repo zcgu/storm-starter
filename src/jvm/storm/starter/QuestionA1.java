@@ -37,8 +37,17 @@ public class QuestionA1 {
         String consumerSecret = "VlcAxGCKJVOgPTs7OyVAaMeFAMezoOQ0JZTtPvsrWF1jbNp9db";
         String accessToken = "3435593417-DlXLbVSCwpUWQEKDbqT7dlHb7iNoO8clPxwnZHe";
         String accessTokenSecret = "bldWCCmhFF2idcZJKZuZVHJ5gpoeywVhu2WRs86A8UCx2";
-        String[] keyWords = {"fans","halloween","star","club","apple","express","google","a","an","the","iphone",
-                                "music","sports","movie","nba","cup","football","star"};
+        String[] keyWords = {"winter","halloween","life",
+                "apple","google","iphone","tech",
+                "music","movie","star",
+                "sports","nba","football","espn",
+                "education","college","school",
+                "politics","obama","vote","law",
+                "travel","tourism","tour",
+                "food","restaurant","cook","health",
+                "arts","theater","literature",
+                "business","economy","stock"
+        };
         TopologyBuilder builder = new TopologyBuilder();
         
         builder.setSpout("twitter", new Q1_TwitterSpout(consumerKey, consumerSecret,

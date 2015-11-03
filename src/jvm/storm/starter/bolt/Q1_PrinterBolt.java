@@ -37,7 +37,7 @@ public class Q1_PrinterBolt implements IRichBolt {
   int count=0;
   FileWriter fstream;
   BufferedWriter out;
-  String fname = "QuestionA1_data_5";
+  String fname = "QuestionA1_data_6";
 
   @Override
   public void declareOutputFields(OutputFieldsDeclarer ofd) {
@@ -51,7 +51,7 @@ public class Q1_PrinterBolt implements IRichBolt {
 
   @Override
   public void execute(Tuple tuple) {
-    if(count<1000000){
+    if(count<1200000){
       Status status=(Status) tuple.getValueByField("tweet");
       String s= status.getText();
       s = s.replaceAll("\r|\n", " ");
