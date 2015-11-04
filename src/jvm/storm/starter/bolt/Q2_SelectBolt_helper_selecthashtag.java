@@ -15,59 +15,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package storm.starter.spout;
-
-import backtype.storm.spout.SpoutOutputCollector;
+package storm.starter.bolt;
+ 
 import backtype.storm.task.TopologyContext;
+import backtype.storm.topology.BasicOutputCollector;
+import backtype.storm.topology.IBasicBolt;
 import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.topology.base.BaseRichSpout;
 import backtype.storm.tuple.Fields;
+import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
-import backtype.storm.utils.Utils;
+import twitter4j.HashtagEntity;
+import twitter4j.Status;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
-public class Q2_HashtagSpout extends BaseRichSpout {
-  SpoutOutputCollector _collector;
-  Random _rand;
-    String[] hashtags = new String[]{};
 
-    public Q2_HashtagSpout(String[] hashtags){
-        this.hashtags = hashtags;
-    }
+public class Q2_SelectBolt_helper_selecthashtag implements IBasicBolt {
 
-  @Override
-  public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
-    _collector = collector;
-    _rand = new Random();
-  }
-
-  @Override
-  public void nextTuple() {
-    List<String> hashtags_subset = new ArrayList<String>();
-    for(int i=0;i<hashtags.length/6;i++)
-      hashtags_subset.add(hashtags[_rand.nextInt(hashtags.length)]);
-
-    _collector.emit(new Values(hashtags_subset));
-
-      Utils.sleep(10000);
-  }
-
-  @Override
-  public void ack(Object id) {
-  }
-
-  @Override
-  public void fail(Object id) {
-  }
 
   @Override
   public void declareOutputFields(OutputFieldsDeclarer declarer) {
-    declarer.declare(new Fields("hashtags"));
+    declarer.declare(new Fields("word"));
+  }
+
+  @Override
+  public Map<String, Object> getComponentConfiguration() {
+    return null;
   }
 
 
+  @Override
+  public void execute(Tuple tuple, BasicOutputCollector collector) {
+            Status status = (Status) tuple.getValueByField("tweet");
+
+            HashtagEntity[] hashtag = status.getHashtagEntities();
+            for (int i = 0; i < hashtag.length; i++) {
+                System.out.println("Q2_SelectBolt hashtag: " + hashtag[i].getText());
+                collector.emit(new Values(hashtag[i].getText().toLowerCase()));
+            }
+  }
+
+
+  @Override
+  public void prepare(Map map, TopologyContext topologyContext) {
+  }
+
+  @Override
+  public void cleanup() {
+  }
 }

@@ -39,9 +39,12 @@ public class Q2_ChangeBolt extends BaseBasicBolt {
 
       ArrayList<String> hashtags;
       int number=0;
-      int OutputFrequency = 30;
+      int OutputFrequency = -1;
         int flag=0;
 
+    public Q2_ChangeBolt(int OutputFrequency){
+        this.OutputFrequency = OutputFrequency;
+    }
       @Override
       public void execute(Tuple tuple, BasicOutputCollector collector) {
         if("hashtags".equals(tuple.getSourceComponent())) {

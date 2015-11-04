@@ -42,9 +42,13 @@ public class Q2_SelectBolt  implements IBasicBolt {
   int count_total=0,count=0;
   FileWriter fstream;
   BufferedWriter out;
-  String fname = "QuestionA2_data_1";
+  String fname ;
   ArrayList<String> hashtags = null;
   int number;
+
+    public Q2_SelectBolt(String fname){
+        this.fname = fname;
+    }
 
   @Override
   public void declareOutputFields(OutputFieldsDeclarer declarer) {
@@ -61,13 +65,18 @@ public class Q2_SelectBolt  implements IBasicBolt {
   public void execute(Tuple tuple, BasicOutputCollector collector) {
 
 
-    System.out.println("Total number is: "+ ++count_total);
+ //   System.out.println("Total number is: "+ ++count_total);
 
     if("change".equals(tuple.getSourceComponent())) {
-      hashtags = (ArrayList<String>) tuple.getValueByField("hashtags");
+        hashtags = (ArrayList<String>) tuple.getValueByField("hashtags");
         number = (Integer) tuple.getValueByField("number");
         count=0;
-      count_total=0;
+        count_total=0;
+        try {
+            out.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     else if ("twitter".equals(tuple.getSourceComponent())) {
@@ -76,14 +85,22 @@ public class Q2_SelectBolt  implements IBasicBolt {
 
             int flag = 0;
             HashtagEntity[] hashtag = status.getHashtagEntities();
+//            for (int i = 0; i < hashtag.length; i++)
+//                System.out.println("Q2_SelectBolt hashtag: " + hashtag[i].getText().replaceAll("\r|\n", " "));
+
             for (int i = 0; i < hashtag.length; i++)
-                if (hashtags.contains(hashtag[i].getText())) flag = 1;
+                if (hashtags.contains(hashtag[i].getText().toLowerCase())) flag = 1;
 
             if (status.getUser().getFriendsCount() <= number && flag == 1) {
                 System.out.println("Selected number is: " + ++count);
-                System.out.println("Q2_SelectBolt: "+status.getText());
-                for (int i = 0; i < hashtag.length; i++)
-                    System.out.println(hashtag[i].getText().replaceAll("\r|\n", " "));
+                System.out.println("Q2_SelectBolt: "+status.getText().replaceAll("\r|\n", " "));
+                try {
+                    out.write(status.getText().replaceAll("\r|\n", " "));
+                    out.newLine();
+                    out.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 collector.emit(new Values(status));
             }
         }

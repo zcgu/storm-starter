@@ -17,80 +17,74 @@
  */
 package storm.starter.bolt;
 
+import backtype.storm.Config;
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.IRichBolt;
 import backtype.storm.topology.OutputFieldsDeclarer;
+import backtype.storm.topology.base.BaseBasicBolt;
+import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
+import storm.starter.util.TupleHelpers;
 import twitter4j.Status;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class Q2_CountBolt implements IRichBolt {
+public class Q2_CountBolt extends BaseBasicBolt {
 
-  FileWriter fstream;
-  BufferedWriter out;
-  String fname = "QuestionA1_data_7";
   Map<String, Integer> map = new HashMap<String, Integer>();
+    int OutputFrequency = -1;
 
-  @Override
-  public void declareOutputFields(OutputFieldsDeclarer ofd) {
-  }
-
-  @Override
-  public Map<String, Object> getComponentConfiguration() {
-    return null;
-  }
-
-
-  @Override
-  public void execute(Tuple tuple) {
-      String word=(String) tuple.getValueByField("word");
-
-      Integer count = map.get(word);
-      if (count == null) count = 0;
-      count++;
-      map.put(word, count);
-
-
-
-/*
-      try {
-          out.write(s);
-          out.newLine();
-          out.flush();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-*/
-  }
-
-
-  @Override
-  public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
-
-    try {
-      fstream = new FileWriter(fname);
-    } catch (IOException e) {
-      e.printStackTrace();
+    public Q2_CountBolt(int OutputFrequency){
+        this.OutputFrequency = OutputFrequency;
     }
-    out = new BufferedWriter(fstream);
+
+  @Override
+  public void declareOutputFields(OutputFieldsDeclarer declarer) {
+      declarer.declare(new Fields("word","count"));
+  }
+
+
+  @Override
+  public void execute(Tuple tuple, BasicOutputCollector collector) {
+      if(TupleHelpers.isTickTuple(tuple)){
+          ArrayList<String> tmp1 = new ArrayList<String>();
+          ArrayList<Integer> tmp2 = new ArrayList<Integer>();
+          for (Map.Entry<String, Integer> entry : map.entrySet()) {
+              System.out.println("Q2_CountBolt: " + "Key = " + entry.getKey() + ", Value = " + entry.getValue());
+              tmp1.add(entry.getKey());
+              tmp2.add(entry.getValue());
+          }
+          collector.emit(new Values(tmp1,tmp2));
+          map.clear();
+      }
+      else {
+          String word = (String) tuple.getValueByField("word");
+
+          Integer count = map.get(word);
+          if (count == null) count = 0;
+          count++;
+          map.put(word, count);
+      }
   }
 
   @Override
   public void cleanup(){
-    try {
-      out.close();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
+
+    @Override
+    public Map<String, Object> getComponentConfiguration() {
+        Map<String, Object> conf = new HashMap<String, Object>();
+        conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, OutputFrequency);
+        return conf;
+    }
 
 }

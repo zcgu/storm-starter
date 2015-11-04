@@ -241,9 +241,10 @@ public class Q2_SplitBolt implements IBasicBolt {
 
     //print
     System.out.print("Q2_SplitBolt: ");
-    for(int i=0;i<split.length;i++){
+    for(int i=0;i<split.length;i++)
+      if(split[i].length()>0){
       System.out.print(split[i]+" ");
-      if(split[i].length()>0) collector.emit(new Values(status));
+       collector.emit(new Values(split[i]));
     }
     System.out.println();
 

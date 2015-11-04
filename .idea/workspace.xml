@@ -2,21 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9eadf27f-ad16-4c8a-9ed3-1f76c347c51b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_PrinterBolt.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_SelectBolt_helper_selecthashtag.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QuestionA2_tweetdata_1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_PrinterBolt.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt_helper_selecthashtag.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QuestionA2_countdata_1" />
+      <change type="DELETED" beforePath="C:\Users\work\Desktop\apache-storm-0.9.5\examples\storm-starter\QuestionA1_data_5" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\work\Desktop\apache-storm-0.9.5\examples\storm-starter\QuestionA2_data_1" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/PrintSampleStream.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/PrintSampleStream.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q1_PrinterBolt.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q1_PrinterBolt.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/spout/Q1_TwitterSpout.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/spout/Q1_TwitterSpout.class" />
+      <change type="DELETED" beforePath="C:\Users\work\Desktop\apache-storm-0.9.5\examples\storm-starter\target\classes\storm\starter\QuestionA2$WordCount.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_ChangeBolt.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_ChangeBolt.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_CountBolt.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_CountBolt.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/spout/Q2_HashtagSpout.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/spout/Q2_HashtagSpout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/QuestionA1.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/QuestionA1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuestionA1_data_5" afterPath="$PROJECT_DIR$/QuestionA1_data_5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_SelectBolt.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_SelectBolt.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_SplitBolt.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/bolt/Q2_SplitBolt.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/storm/starter/QuestionA2.class" afterPath="$PROJECT_DIR$/target/classes/storm/starter/QuestionA2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/PrintSampleStream.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/PrintSampleStream.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q1_PrinterBolt.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q1_PrinterBolt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/spout/Q1_TwitterSpout.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/spout/Q1_TwitterSpout.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_ChangeBolt.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_ChangeBolt.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_CountBolt.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_CountBolt.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_HashtagSpout.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_HashtagSpout.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/QuestionA1.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/QuestionA1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SplitBolt.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SplitBolt.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jvm/storm/starter/QuestionA2.java" afterPath="$PROJECT_DIR$/src/jvm/storm/starter/QuestionA2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.markdown" afterPath="$PROJECT_DIR$/README.markdown" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="storm-starter.iws" />
@@ -39,62 +45,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="QuestionA2.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QuestionA2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/QuestionA2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="50" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.813253">
+              <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Q2_TwitterSpout.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_TwitterSpout.java">
+      <file leaf-file-name="Q2_ChangeBolt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_ChangeBolt.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="117" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Q2_NumbersSpout.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_NumbersSpout.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuestionA1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/QuestionA1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="85" selection-start-line="40" selection-start-column="85" selection-end-line="40" selection-end-column="85" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Q1_TwitterSpout.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q1_TwitterSpout.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Q1_PrinterBolt.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q1_PrinterBolt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28">
-              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-              <folding />
+              <caret line="47" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding>
+                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1635#1636#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,18 +72,63 @@
         <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="75" column="60" selection-start-line="75" selection-start-column="6" selection-end-line="75" selection-end-column="60" />
+              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <element signature="e#1686#1687#0" expanded="true" />
+                <element signature="e#1720#1721#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Q2_SelectBolt_helper_selecthashtag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt_helper_selecthashtag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrintSampleStream.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/PrintSampleStream.java">
+      <file leaf-file-name="Q2_SplitBolt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SplitBolt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.714286">
+              <caret line="247" column="5" selection-start-line="247" selection-start-column="5" selection-end-line="247" selection-end-column="5" />
+              <folding>
+                <element signature="initializer##0;class#1435:4506" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Q2_CountBolt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_CountBolt.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-              <folding />
+              <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+              <folding>
+                <element signature="e#1673#1674#0" expanded="true" />
+                <element signature="e#1727#1728#0" expanded="true" />
+                <element signature="e#1807#1808#0" expanded="true" />
+                <element signature="e#1863#1864#0" expanded="true" />
+                <element signature="e#2039#2047#0" expanded="true" />
+                <element signature="e#2100#2109#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Q2_PrinterBolt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_PrinterBolt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="60" column="47" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+              <folding>
+                <element signature="e#1555#1564#0" expanded="true" />
+                <element signature="e#2055#2063#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,18 +137,11 @@
         <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_HashtagSpout.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.markdown" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.markdown">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5428572">
-              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-              <folding />
+              <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+              <folding>
+                <element signature="e#1428#1429#0" expanded="true" />
+                <element signature="e#1468#1469#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,12 +161,18 @@
       <list>
         <option value="$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_NumbersSpout.java" />
         <option value="$PROJECT_DIR$/README.markdown" />
-        <option value="$PROJECT_DIR$/src/jvm/storm/starter/QuestionA2.java" />
         <option value="$PROJECT_DIR$/src/jvm/storm/starter/PrintSampleStream.java" />
-        <option value="$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_HashtagSpout.java" />
         <option value="$PROJECT_DIR$/src/jvm/storm/starter/spout/Q1_TwitterSpout.java" />
         <option value="$PROJECT_DIR$/src/jvm/storm/starter/QuestionA1.java" />
         <option value="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q1_PrinterBolt.java" />
+        <option value="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_ChangeBolt.java" />
+        <option value="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SplitBolt.java" />
+        <option value="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_CountBolt.java" />
+        <option value="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt_helper_selecthashtag.java" />
+        <option value="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt.java" />
+        <option value="$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_PrinterBolt.java" />
+        <option value="$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_HashtagSpout.java" />
+        <option value="$PROJECT_DIR$/src/jvm/storm/starter/QuestionA2.java" />
       </list>
     </option>
   </component>
@@ -174,9 +187,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="width" value="1934" />
-    <option name="height" value="1030" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1942" />
+    <option name="height" value="1042" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -201,7 +215,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -310,8 +324,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,7 +333,12 @@
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
   </component>
-  <component name="RunManager" selected="Application.QuestionA1">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="storm.starter.bolt" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.QuestionA2">
     <configuration default="false" name="QuestionA2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -561,8 +580,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.QuestionA1" />
-        <item index="1" class="java.lang.String" itemvalue="Application.QuestionA2" />
+        <item index="0" class="java.lang.String" itemvalue="Application.QuestionA2" />
+        <item index="1" class="java.lang.String" itemvalue="Application.QuestionA1" />
       </list>
     </recent_temporary>
   </component>
@@ -585,32 +604,32 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="1934" height="1030" extended-state="0" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295838" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4073252" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -633,10 +652,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_NumbersSpout.java">
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/QuestionA2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+          <caret line="83" column="50" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -649,50 +668,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.markdown">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5428572">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/QuestionA2.java">
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_NumbersSpout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="50" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_HashtagSpout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="60" selection-start-line="75" selection-start-column="6" selection-end-line="75" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q1_TwitterSpout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/PrintSampleStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -705,10 +684,223 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q1_TwitterSpout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q1_PrinterBolt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28">
-          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="60" selection-start-line="75" selection-start-column="6" selection-end-line="75" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/PrintSampleStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_HashtagSpout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_NumbersSpout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_TwitterSpout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/PrintSampleStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q1_TwitterSpout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/RollingCountBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63670415">
+          <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/RollingTopWords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5861423">
+          <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/WordCountTopology.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q1_PrinterBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8595506">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/QuestionA1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70481926">
+          <caret line="49" column="10" selection-start-line="39" selection-start-column="7" selection-end-line="49" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_CountBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+          <folding>
+            <element signature="e#1673#1674#0" expanded="true" />
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1807#1808#0" expanded="true" />
+            <element signature="e#1863#1864#0" expanded="true" />
+            <element signature="e#2039#2047#0" expanded="true" />
+            <element signature="e#2100#2109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SplitBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.714286">
+          <caret line="247" column="5" selection-start-line="247" selection-start-column="5" selection-end-line="247" selection-end-column="5" />
+          <folding>
+            <element signature="initializer##0;class#1435:4506" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QuestionA2_countdata_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21686748">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_PrinterBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="47" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+          <folding>
+            <element signature="e#1555#1564#0" expanded="true" />
+            <element signature="e#2055#2063#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_ChangeBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1635#1636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt_helper_selecthashtag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/spout/Q2_HashtagSpout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+          <folding>
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1468#1469#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/bolt/Q2_SelectBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="e#1686#1687#0" expanded="true" />
+            <element signature="e#1720#1721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvm/storm/starter/QuestionA2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.813253">
+          <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
           <folding />
         </state>
       </provider>

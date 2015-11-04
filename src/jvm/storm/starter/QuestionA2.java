@@ -28,9 +28,7 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
-import storm.starter.bolt.Q2_ChangeBolt;
-import storm.starter.bolt.Q2_SplitBolt;
-import storm.starter.bolt.Q2_SelectBolt;
+import storm.starter.bolt.*;
 import storm.starter.spout.Q2_HashtagSpout;
 import storm.starter.spout.Q2_NumbersSpout;
 import storm.starter.spout.Q2_TwitterSpout;
@@ -40,76 +38,87 @@ import java.util.Map;
 
 
 public class QuestionA2 {
-    public static class WordCount extends BaseBasicBolt {
-        Map<String, Integer> counts = new HashMap<String, Integer>();
 
-        @Override
-        public void execute(Tuple tuple, BasicOutputCollector collector) {
-            String word = (String) tuple.getValueByField("tweet");
-            Integer count = counts.get(word);
-            if (count == null)
-                count = 0;
-            count++;
-            counts.put(word, count);
-            System.out.println(word+" "+count);
-            collector.emit(new Values(word, count));
-        }
-
-        @Override
-        public void declareOutputFields(OutputFieldsDeclarer declarer) {
-            declarer.declare(new Fields("word", "count"));
-        }
-    }
 
     public static void main(String[] args) {
-       /* String consumerKey = args[0];
-        String consumerSecret = args[1];
-        String accessToken = args[2];
-        String accessTokenSecret = args[3];
-        String[] arguments = args.clone();
-        String[] keyWords = Arrays.copyOfRange(arguments, 4, arguments.length);*/
 
         String consumerKey = "PAENc9WI0klCBwLPhyOqfVNMt";
         String consumerSecret = "9BXbYQbXSjCRgMzU6UhgopMZe3aBVw7bjTS16fSMyTWef3QPyK";
         String accessToken = "3435593417-8EQvMbiAVpEQeZFR6uvJDk1c5Ow05ZudGbZrIpa";
         String accessTokenSecret = "4v2pFJykOjDfA14aGLKPMCHRSbyx0zXGGP9mygPJDM3I9";
  //     String[] keyWords = {"fans","halloween","star","club","apple","express","google","a","an","the"};
-        String[] keyWords = {"apple","google","Microsoft","facebook","iphone","app","tech","ipad","mobile","android","ios",
-                                "mac","imac","macbook","apps","music","itunes","games","AndroidGames","ipadgames","samsung",
-                                "network","yahoo","amazon","uber","tvos","cloud","icloud","bestbuy","ebay","computer","phone",
-                                "technology","ebook","java","chrome","whatsapp", "iphone7","ios10",
-                                "WebSummit2015","AMAs","IllShowYou","URGENT","AMAs","BIGBANG","BTS","PushAwardsKathNiels","PSYBwelta","PENNYSTOCKS",
-                                "TEAMBILLIONAIRE","WebSummit2015","tech","News","Howto"};
+//        String[] keyWords = {"apple","google","Microsoft","facebook","iphone","app","tech","ipad","mobile","android","ios",
+//                                "mac","imac","macbook","apps","music","itunes","games","AndroidGames","ipadgames","samsung",
+//                                "network","yahoo","amazon","uber","tvos","cloud","icloud","bestbuy","ebay","computer","phone",
+//                                "technology","ebook","java","chrome","whatsapp", "iphone7","ios10",
+//                                "WebSummit2015","AMAs","IllShowYou","URGENT","AMAs","BIGBANG","BTS","PushAwardsKathNiels","PSYBwelta","PENNYSTOCKS",
+//                                "TEAMBILLIONAIRE","WebSummit2015","tech","News","Howto"};
+
+        String[] keyWords = {"winter","halloween","life",
+                "apple","google","iphone","tech",
+                "music","movie","star",
+                "sports","nba","football","espn",
+                "education","college","school",
+                "politics","obama","vote","law",
+                "travel","tourism","tour",
+                "food","restaurant","cook","health",
+                "arts","theater","literature",
+                "business","economy","stock"
+        };
+
+        String hashtags_origin = "fit music rap outtie200 streamys opportunity google deals stavrosvelissaris business food oppression tasneemchopra bondage startup tcot weightloss jersey football home androidgames college career education repost nba hiphop productdesign obama iphone6 forcefordaniel top cookbook notoxichorsemeat aliakhan health singapore amas smallbiz solution law yelp amazon nfl saintforhumanity kickstarter recipe aptask nowplaying sports pakistani auzibiz poverty gameinsight indiegogo ukvoty1d iphonegames fatloss entrepreneur 2a religion marketing kygov aldubnewcharacter ruhalalam tech proshot psylinlang android video apple news thoughtleaders electionday program twitter worldseries case work iphone cars pjnet prankvsprank foodporn banup travel halloween ucl agentsofshield myfitnesspal politics videomarketing dabemoji moneybagz madeintheam soccer affiliate " +
+                "music trip google freekeshanow stavrosvelissaris mufc seo business stoprush tcot gangstalking fl india football bitcoin androidgames education nba hiphop save soundcloud top cookbook notoxichorsemeat 520promo retweet health amas crowdfunding 7thweekmsg2 starwars contest rnb yelp mentalhealth nfl kickstarter p2 nowplaying sports nature dogecoin gameinsight exo dance indiegogo photography art tour kygov fashion aldubnewcharacter florida socialmedia rhianrockssundownbeatssg passion tech psylinlang showtimethetask android life news technology money games worldseries uniteblue iphone cars ipadgames makemytrip oomf androi travel halloween ipad politics dabemoji gorillaglass4sweeps landscape " +
+                "music stavrosvelissaris innovation business jobs food workout topps fitness tcot journey selfhe cardinals jersey football education mplusrewards illshowyou nba pcas top cookbook vacation share notoxichorsemeat health positive getfit amas copolitics solution me law nfl ebay kickstarter hiring best boy sports instagram cfbplayoff cover bigbang gameinsight singing indiegogo clemson photography iphonegames colts art aldubnewcharacter socialmedia acapella tech psylinlang ?? pushawardskathniels android video apple cfp25 news technology electionday espn positivity worldseries iphone ipadgames teacherfriends card artist ravens travel nytimes ipad job winter dabemoji voy?ge michaelbuble gorillaglass4sweeps win ";
+        String[] hashtags = hashtags_origin.split(" ");
+        for (int i=0;i<hashtags.length;i++)
+            for (int j=i+1;j<hashtags.length;j++)
+                if(hashtags[i].equals(hashtags[j])) hashtags[j]="";
+
+        int OutputFrequency = 150;
+        String fname1="QuestionA2_tweetdata_1";
+        String fname2="QuestionA2_countdata_1";
 
 
         TopologyBuilder builder = new TopologyBuilder();
         
         builder.setSpout("twitter", new Q2_TwitterSpout(consumerKey, consumerSecret,accessToken, accessTokenSecret, keyWords));
-        builder.setSpout("hashtags", new Q2_HashtagSpout());
+        builder.setSpout("hashtags", new Q2_HashtagSpout(hashtags));
         builder.setSpout("number", new Q2_NumbersSpout());
 
-        builder.setBolt("change", new Q2_ChangeBolt())
+        builder.setBolt("change", new Q2_ChangeBolt(OutputFrequency))
                 .globalGrouping("hashtags")
                 .globalGrouping("number");
 
-        builder.setBolt("select", new Q2_SelectBolt())
+
+        builder.setBolt("select", new Q2_SelectBolt(fname1))
                 .allGrouping("change")
                 .shuffleGrouping("twitter");
+        builder.setBolt("split", new Q2_SplitBolt(), 4)
+                .shuffleGrouping("select");
+        builder.setBolt("count", new Q2_CountBolt(OutputFrequency),4)
+                .fieldsGrouping("split", new Fields("word"));
+        builder.setBolt("print", new Q2_PrinterBolt(OutputFrequency,fname2))
+                .globalGrouping("count");
 
-        builder.setBolt("split",new Q2_SplitBolt(),4).shuffleGrouping("select");
+
+ /*       builder.setBolt("helper", new Q2_SelectBolt_helper_selecthashtag())
+                .shuffleGrouping("twitter");
+        builder.setBolt("count", new Q2_CountBolt(OutputFrequency),4)
+                .fieldsGrouping("helper", new Fields("word"));
+        builder.setBolt("print", new Q2_PrinterBolt(OutputFrequency,fname2))
+                .globalGrouping("count");
+*/
 
 
-     //   builder.setBolt("count", new WordCount()).fieldsGrouping("select",new Fields("tweet"));
 
         Config conf = new Config();
-        
         
         LocalCluster cluster = new LocalCluster();
         conf.setMaxTaskParallelism(3);
 
         cluster.submitTopology("test", conf, builder.createTopology());
         
-        Utils.sleep(300000);
-        cluster.shutdown();
+//        Utils.sleep(3000000);
+//       cluster.shutdown();
     }
 }
