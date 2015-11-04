@@ -17,6 +17,7 @@
  */
 package storm.starter.bolt;
  
+import backtype.storm.Config;
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.BasicOutputCollector;
@@ -26,40 +27,53 @@ import backtype.storm.topology.base.BaseBasicBolt;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
+import storm.starter.util.TupleHelpers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 
 
 public class Q2_ChangeBolt extends BaseBasicBolt {
 
-      int flag=0;
       ArrayList<String> hashtags;
-      int number;
+      int number=0;
+      int OutputFrequency = 30;
+        int flag=0;
 
       @Override
       public void execute(Tuple tuple, BasicOutputCollector collector) {
         if("hashtags".equals(tuple.getSourceComponent())) {
           hashtags = (ArrayList<String>) tuple.getValueByField("hashtags");
-          flag++;
+            if(flag<2) flag++;
         }
         else if ("number".equals(tuple.getSourceComponent())) {
           number = (Integer) tuple.getValueByField("number");
-          flag++;
+            if(flag<2) flag++;
         }
-
-        if(flag==2){
-          flag=0;
+        else if(TupleHelpers.isTickTuple(tuple)){
           collector.emit(new Values(hashtags, number));
           System.out.println("Q2_Changebolt: " + hashtags + " " + number);
         }
 
+          if(flag==2){
+            collector.emit(new Values(hashtags, number));
+            System.out.println("Q2_Changebolt: " + hashtags + " " + number);
+            flag=3;
+        }
       }
 
       @Override
       public void declareOutputFields(OutputFieldsDeclarer declarer) {
         declarer.declare(new Fields("hashtags","number"));
       }
+
+    @Override
+    public Map<String, Object> getComponentConfiguration() {
+        Map<String, Object> conf = new HashMap<String, Object>();
+        conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, OutputFrequency);
+        return conf;
+    }
 
     }

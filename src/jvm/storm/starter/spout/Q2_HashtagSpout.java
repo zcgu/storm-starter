@@ -61,7 +61,7 @@ public class Q2_HashtagSpout extends BaseRichSpout {
 
     _collector.emit(new Values(hashtags_subset));
 
-      Utils.sleep(30000);
+      Utils.sleep(10000);
   }
 
   @Override

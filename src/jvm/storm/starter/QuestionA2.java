@@ -29,6 +29,7 @@ import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
 import storm.starter.bolt.Q2_ChangeBolt;
+import storm.starter.bolt.Q2_SplitBolt;
 import storm.starter.bolt.Q2_SelectBolt;
 import storm.starter.spout.Q2_HashtagSpout;
 import storm.starter.spout.Q2_NumbersSpout;
@@ -83,17 +84,20 @@ public class QuestionA2 {
 
         TopologyBuilder builder = new TopologyBuilder();
         
-        builder.setSpout("twitter", new Q2_TwitterSpout(consumerKey, consumerSecret,accessToken, accessTokenSecret, keyWords),8);
+        builder.setSpout("twitter", new Q2_TwitterSpout(consumerKey, consumerSecret,accessToken, accessTokenSecret, keyWords));
         builder.setSpout("hashtags", new Q2_HashtagSpout());
         builder.setSpout("number", new Q2_NumbersSpout());
 
         builder.setBolt("change", new Q2_ChangeBolt())
-                .shuffleGrouping("hashtags")
-                .shuffleGrouping("number");
+                .globalGrouping("hashtags")
+                .globalGrouping("number");
 
         builder.setBolt("select", new Q2_SelectBolt())
-                .shuffleGrouping("change")
+                .allGrouping("change")
                 .shuffleGrouping("twitter");
+
+        builder.setBolt("split",new Q2_SplitBolt(),4).shuffleGrouping("select");
+
 
      //   builder.setBolt("count", new WordCount()).fieldsGrouping("select",new Fields("tweet"));
 

@@ -47,7 +47,7 @@ public class Q2_NumbersSpout extends BaseRichSpout {
     int[] numbers = new int[]{500,1000,2000,4000,8000};
     int number= numbers[_rand.nextInt(numbers.length)];
     _collector.emit(new Values(number));
-      Utils.sleep(30000);
+      Utils.sleep(10000);
   }
 
   @Override
