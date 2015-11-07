@@ -20,12 +20,16 @@ package storm.starter;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
+import backtype.storm.StormSubmitter;
+import backtype.storm.generated.AlreadyAliveException;
+import backtype.storm.generated.InvalidTopologyException;
 import backtype.storm.topology.TopologyBuilder;
+import backtype.storm.utils.Utils;
 import storm.starter.bolt.Q1_PrinterBolt;
 import storm.starter.spout.Q1_TwitterSpout;
 
 public class QuestionA1 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException {
        /* String consumerKey = args[0];
         String consumerSecret = args[1];
         String accessToken = args[2];
@@ -49,21 +53,23 @@ public class QuestionA1 {
                 "business","economy","stock"
         };
         TopologyBuilder builder = new TopologyBuilder();
-        
+
         builder.setSpout("twitter", new Q1_TwitterSpout(consumerKey, consumerSecret,
-                                accessToken, accessTokenSecret, keyWords));
+                accessToken, accessTokenSecret, keyWords));
         builder.setBolt("print", new Q1_PrinterBolt())
                 .shuffleGrouping("twitter");
-                
-                
+
         Config conf = new Config();
-        
-        
-        LocalCluster cluster = new LocalCluster();
-        
-        cluster.submitTopology("test", conf, builder.createTopology());
-        
-        //Utils.sleep(1000000);
-        //cluster.shutdown();
+        if (args != null && args.length > 0) {
+            conf.setNumWorkers(4);
+            StormSubmitter.submitTopologyWithProgressBar(args[0], conf, builder.createTopology());
+        }
+        else {
+            conf.setMaxTaskParallelism(4);
+            LocalCluster cluster = new LocalCluster();
+            cluster.submitTopology("test", conf, builder.createTopology());
+            Utils.sleep(1000000);
+            cluster.shutdown();
+        }
     }
 }

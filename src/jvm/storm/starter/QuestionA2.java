@@ -20,6 +20,9 @@ package storm.starter;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
+import backtype.storm.StormSubmitter;
+import backtype.storm.generated.AlreadyAliveException;
+import backtype.storm.generated.InvalidTopologyException;
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.TopologyBuilder;
@@ -40,19 +43,12 @@ import java.util.Map;
 public class QuestionA2 {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException {
 
         String consumerKey = "PAENc9WI0klCBwLPhyOqfVNMt";
         String consumerSecret = "9BXbYQbXSjCRgMzU6UhgopMZe3aBVw7bjTS16fSMyTWef3QPyK";
         String accessToken = "3435593417-8EQvMbiAVpEQeZFR6uvJDk1c5Ow05ZudGbZrIpa";
         String accessTokenSecret = "4v2pFJykOjDfA14aGLKPMCHRSbyx0zXGGP9mygPJDM3I9";
- //     String[] keyWords = {"fans","halloween","star","club","apple","express","google","a","an","the"};
-//        String[] keyWords = {"apple","google","Microsoft","facebook","iphone","app","tech","ipad","mobile","android","ios",
-//                                "mac","imac","macbook","apps","music","itunes","games","AndroidGames","ipadgames","samsung",
-//                                "network","yahoo","amazon","uber","tvos","cloud","icloud","bestbuy","ebay","computer","phone",
-//                                "technology","ebook","java","chrome","whatsapp", "iphone7","ios10",
-//                                "WebSummit2015","AMAs","IllShowYou","URGENT","AMAs","BIGBANG","BTS","PushAwardsKathNiels","PSYBwelta","PENNYSTOCKS",
-//                                "TEAMBILLIONAIRE","WebSummit2015","tech","News","Howto"};
 
         String[] keyWords = {"winter","halloween","life",
                 "apple","google","iphone","tech",
@@ -112,13 +108,16 @@ public class QuestionA2 {
 
 
         Config conf = new Config();
-        
-        LocalCluster cluster = new LocalCluster();
-        conf.setMaxTaskParallelism(3);
-
-        cluster.submitTopology("test", conf, builder.createTopology());
-        
-//        Utils.sleep(3000000);
-//       cluster.shutdown();
+        if (args != null && args.length > 0) {
+            conf.setNumWorkers(4);
+            StormSubmitter.submitTopologyWithProgressBar(args[0], conf, builder.createTopology());
+        }
+        else {
+            conf.setMaxTaskParallelism(4);
+            LocalCluster cluster = new LocalCluster();
+            cluster.submitTopology("test", conf, builder.createTopology());
+            Utils.sleep(1000000);
+            cluster.shutdown();
+        }
     }
 }
